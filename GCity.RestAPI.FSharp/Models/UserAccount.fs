@@ -4,7 +4,7 @@ open System.ComponentModel.DataAnnotations.Schema
 open System.ComponentModel.DataAnnotations
 open System
 
-[<Table("USER_ACCOUNT")>]
+[<Table("UserAccount")>]
 type UserAccount
     (
         id: Guid,
@@ -16,28 +16,28 @@ type UserAccount
         updatedUserId: Guid,
         deleted: DeleteFlag
     ) =
-    [<Key; Column("ID"); ForeignKey("USER_PROFILE_ID")>]
+    [<Key; Column("Id"); ForeignKey("UserProfileId")>]
     let mutable id = id
 
-    [<Required; MaxLength(64); Column("USERNAME")>]
+    [<Required; MaxLength(64); Column("Username")>]
     let mutable username = username
 
-    [<Required; MaxLength(128); Column("PASSWORD")>]
+    [<Required; MaxLength(128); Column("Password")>]
     let mutable password = password
 
-    [<Required; Column("CREATED_TIME")>]
+    [<Required; Column("CreatedTime")>]
     let mutable createdTime = createdTime
 
-    [<Required; Column("CREATED_USER_ID")>]
+    [<Required; Column("CreatedUserId")>]
     let mutable createdUserId = createdUserId
 
-    [<Column("UPDATED_TIME")>]
+    [<Column("UpdatedTime")>]
     let mutable updatedTime = updatedTime
 
-    [<Column("UPDATED_USER_ID")>]
+    [<Column("UpdatedUserId")>]
     let mutable updatedUserId = updatedUserId
 
-    [<Column("DELETED")>]
+    [<Column("Deleted")>]
     let mutable deleted = deleted
 
     new() = UserAccount()

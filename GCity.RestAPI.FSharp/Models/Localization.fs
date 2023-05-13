@@ -33,7 +33,7 @@ type Localization(code: string, name: string, native: string, msCode: string, gg
     static member ZH_CN = Localization("zh-CN", "Chinese Simplified", "中文简体", "zh-CN", "zh_CN")
     static member ZH_TW = Localization("zh-TW", "Chinese Traditional", "中文繁体", "zh-TW", "zh_TW")
 
-    member this.Of(code: string) : Localization =
+    static member Of(code: string) : Localization =
         match code with
         | "ja" -> Localization.JA
         | "en" -> Localization.EN

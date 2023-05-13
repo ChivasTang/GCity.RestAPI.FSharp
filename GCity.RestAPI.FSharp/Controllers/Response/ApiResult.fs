@@ -26,9 +26,6 @@ type ApiResult(code: int, message: string, timestamp: int64, data: 'T) =
 
     new() = ApiResult()
 
-    new(resCode: ResCode) =
-        ApiResult(resCode.Code, resCode.Message, DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds(), null)
-
     new(data: 'T) =
         ApiResult(
             ResCode.SUCCESS_RESULT.Code,
@@ -37,9 +34,14 @@ type ApiResult(code: int, message: string, timestamp: int64, data: 'T) =
             data
         )
 
+    new(resCode: ResCode) =
+        ApiResult(resCode.Code, resCode.Message, DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds(), null)
+
     new(resCode: ResCode, data: 'T) =
         ApiResult(resCode.Code, resCode.Message, DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds(), data)
 
     static member SUCCESS(data: 'T) = ApiResult(data)
 
     static member FAIL(resCode: ResCode) = ApiResult(resCode)
+
+    static member FAIL(resCode: ResCode, data: 'T) = ApiResult(resCode, data)
