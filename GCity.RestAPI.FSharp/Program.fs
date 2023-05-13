@@ -1,5 +1,7 @@
 namespace GCity.RestAPI.FSharp
+
 #nowarn "20"
+
 open System
 open System.Collections.Generic
 open System.IO
