@@ -1,6 +1,6 @@
 ﻿namespace GCity.RestAPI.FSharp
 
 type DeleteFlag =
-    | EXISTING
-    | DELETED
-    | SUSPEND
+    | EXISTING = 0
+    | DELETED = 1
+    | SUSPEND = 2

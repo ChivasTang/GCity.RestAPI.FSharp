@@ -6,7 +6,7 @@ type ResCode =
       Message: string }
 
     // OK
-    static member SUCCESS_RESULT = { Code = 200; Message = "ok" }
+    static member SUCCESS_RESULT = { Code = 200; Message = null }
 
     //Token
     static member INVALID_TOKEN = { Code = 6001; Message = "访问令牌不合法" }

@@ -1,5 +1,7 @@
 namespace GCity.RestAPI.FSharp
 
+open Microsoft.EntityFrameworkCore
+
 #nowarn "20"
 
 open System
@@ -23,6 +25,21 @@ module Program =
     let main args =
 
         let builder = WebApplication.CreateBuilder(args)
+
+        // AppSettings
+        let configurationBuilder =
+            ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", false, true)
+                .AddEnvironmentVariables()
+                .Build()
+
+        // DbContext
+        let connectionString =
+            configurationBuilder.GetConnectionString("ConnectionStrings:MSSQLSERVER")
+
+        builder.Services.AddDbContext<ApiDbContext>(fun (options: DbContextOptionsBuilder) ->
+            options.UseSqlServer(connectionString).EnableSensitiveDataLogging() |> ignore)
+        |> ignore
 
         builder.Services.AddControllers()
 
