@@ -11,5 +11,5 @@ type IndexController(logger: ILogger<IndexController>) =
     [<HttpGet>]
     member _.Index() =
         logger.LogDebug "IndexController ==== Index.Get ===="
-        ApiResult.SUCCESS("this is index page...")
-//ApiResult.FAIL(ResCode.ACCESS_DENIED)
+        //ApiResult.SUCCESS("this is index page...")
+        ApiResult.FAIL(ResCode.ACCESS_DENIED)

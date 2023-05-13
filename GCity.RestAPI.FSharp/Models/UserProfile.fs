@@ -11,7 +11,7 @@ type UserProfile(id: Guid, locale: string) =
     [<Key; Column("Id")>]
     let mutable id = id
 
-    [<Column("Localization"); Required>]
+    [<Column("Locale"); Required>]
     let mutable locale = locale
 
     [<DefaultValue>]
