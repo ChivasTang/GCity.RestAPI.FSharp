@@ -5,10 +5,12 @@ open Microsoft.Extensions.Logging
 
 [<ApiController>]
 [<Route("[controller]")>]
-type RegisterController(logger: ILogger<RegisterController>) =
+type RegisterController(logger: ILogger<RegisterController>, userRegisterService: IUserRegisterService) =
     inherit ControllerBase()
 
     [<HttpPost>]
     member _.Register() =
         logger.LogDebug "RegisterController --- Register ---"
-        ApiResult.SUCCESS("This is register api...")
+        let userRegister = UserRegister("tangzh1983", "lipton1120", "lipton1120")
+        let userRegister = userRegisterService.Register(userRegister)
+        ApiResult.SUCCESS(userRegister)

@@ -40,7 +40,14 @@ module Program =
         builder.Services.AddDbContext<ApiDbContext>(fun (options: DbContextOptionsBuilder) ->
             options.UseSqlServer(connectionString).EnableSensitiveDataLogging() |> ignore)
         |> ignore
+        // Add Repositories
+        builder.Services.AddTransient<IUserAccountRepository, UserAccountRepository>()
+        builder.Services.AddTransient<IUserProfileRepository, UserProfileRepository>()
 
+        // Add Services
+        builder.Services.AddTransient<IUserRegisterService, UserRegisterService>()
+
+        // Add Controller
         builder.Services.AddControllers()
 
         let app = builder.Build()

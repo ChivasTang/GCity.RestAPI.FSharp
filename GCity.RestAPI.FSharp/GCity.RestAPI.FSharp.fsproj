@@ -9,14 +9,14 @@
     <ItemGroup>
         <Compile Include="Models/Enums/*.fs"/>
         <Compile Include="Models/*.fs"/>
+        <Compile Include="Domains/Response/ResCode.fs"/>
+        <Compile Include="Domains/Response/ApiResult.fs"/>
         <Compile Include="Domains/*.fs"/>
         <Compile Include="Database/*.fs"/>
         <Compile Include="Repositories/Interfaces/I*Repository.fs"/>
         <Compile Include="Repositories/*Repository.fs"/>
         <Compile Include="Services/Interfaces/I*Service.fs"/>
         <Compile Include="Services/*Service.fs"/>
-        <Compile Include="Controllers/Response/ResCode.fs"/>
-        <Compile Include="Controllers/Response/ApiResult.fs"/>
         <Compile Include="Controllers/*.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>

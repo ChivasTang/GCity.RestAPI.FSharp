@@ -12,4 +12,4 @@ type IndexController(logger: ILogger<IndexController>) =
     member _.Index() =
         logger.LogDebug "IndexController ==== Index.Get ===="
         //ApiResult.SUCCESS("this is index page...")
-        ApiResult.FAIL(ResCode.ACCESS_DENIED)
+        ApiResult.FAIL(ResCode.LOGIN_USERNAME_PASSWORD_UNVALIDATED)
