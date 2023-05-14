@@ -3,4 +3,4 @@
 open GCity.RestAPI.FSharp.Domains
 
 type IUserRegisterService =
-    abstract member Register: userRegister: UserRegister -> UserRegister
+    abstract member Register: userRegister: UserRegister -> ResCode

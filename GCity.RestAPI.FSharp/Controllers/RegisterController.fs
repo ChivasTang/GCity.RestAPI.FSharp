@@ -13,6 +13,5 @@ type RegisterController(logger: ILogger<RegisterController>, userRegisterService
     [<HttpPost>]
     member _.Register([<FromBody>] _userRegister: UserRegister) =
         logger.LogDebug "RegisterController --- Register ---"
-        let userRegister = UserRegister("tangzh1983", "lipton1120", "lipton1120")
-        let userRegister = userRegisterService.Register(userRegister)
+        let userRegister = userRegisterService.Register(_userRegister)
         ApiResult.SUCCESS(userRegister)

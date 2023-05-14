@@ -21,4 +21,4 @@ type UserAccount =
       [<Column("UpdatedUserId")>]
       UpdatedUserId: Guid
       [<Column("Deleted")>]
-      Deleted: int }
+      Deleted: DeleteFlag }

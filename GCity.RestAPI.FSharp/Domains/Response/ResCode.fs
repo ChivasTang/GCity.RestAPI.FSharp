@@ -32,4 +32,4 @@ type ResCode =
     static member REGISTER_PASSWORD_NOT_INPUT = { Code = 6202; Message = "请填写密码。" }
     static member REGISTER_PASSWORD_NOT_CONFIRMED = { Code = 6203; Message = "密码不一致。" }
     static member REGISTER_USERNAME_EXISTED = { Code = 6204; Message = "该用户已经存在。" }
-    static member REGISTER_SAVED_INFO = { Code = 6205; Message = "该用户数据入库失败。" }
+    static member REGISTER_SAVE_FAILED = { Code = 6205; Message = "该用户数据入库失败。" }

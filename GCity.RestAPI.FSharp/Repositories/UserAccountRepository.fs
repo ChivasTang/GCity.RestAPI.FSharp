@@ -1,5 +1,6 @@
 ﻿namespace GCity.RestAPI.FSharp.Repositories
 
+open System
 open GCity.RestAPI.FSharp.Database
 open GCity.RestAPI.FSharp.Models
 
@@ -10,12 +11,14 @@ type UserAccountRepository(_context: ApiDbContext) =
         override this.ChangeUserName(userAccount: UserAccount) : unit =
             context.UserAccounts.Update(userAccount) |> ignore
 
+
         override this.Delete(userAccount: UserAccount) : unit =
             context.UserAccounts.Remove(userAccount) |> ignore
 
+
         override this.Insert(userAccount: UserAccount) : unit =
             context.UserAccounts.Add(userAccount) |> ignore
-            context.SaveChanges(true) |> ignore
+
 
 
         override this.GetByUsername(username: string) : UserAccount =
@@ -26,7 +29,7 @@ type UserAccountRepository(_context: ApiDbContext) =
                     lastOrDefault
             }
 
-        override this.GetById(userId: System.Guid) : UserAccount =
+        override this.GetById(userId: Guid) : UserAccount =
             query {
                 for userAccount in context.UserAccounts do
                     where (userAccount.Id = userId)

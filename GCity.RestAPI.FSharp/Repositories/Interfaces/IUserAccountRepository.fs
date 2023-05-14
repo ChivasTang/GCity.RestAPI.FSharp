@@ -1,6 +1,5 @@
 ﻿namespace GCity.RestAPI.FSharp.Repositories
 
-open Microsoft.EntityFrameworkCore.ChangeTracking
 open System
 open GCity.RestAPI.FSharp.Models
 
