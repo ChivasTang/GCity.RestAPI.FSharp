@@ -1,4 +1,4 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Models
 
 type DeleteFlag =
     | EXISTING = 0

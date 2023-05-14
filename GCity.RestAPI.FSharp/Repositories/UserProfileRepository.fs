@@ -1,6 +1,8 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Repositories
 
 open System
+open GCity.RestAPI.FSharp.Database
+open GCity.RestAPI.FSharp.Models
 
 type UserProfileRepository(_context: ApiDbContext) =
     let userProfiles = _context.UserProfiles

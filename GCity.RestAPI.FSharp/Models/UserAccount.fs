@@ -1,10 +1,10 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Models
 
 open System.ComponentModel.DataAnnotations.Schema
 open System.ComponentModel.DataAnnotations
 open System
 
-[<Table("UserAccount"); CLIMutable>]
+[<CLIMutable; Table("UserAccount")>]
 type UserAccount =
     { [<Key; Column("Id"); ForeignKey("UserProfileId")>]
       Id: Guid
@@ -21,4 +21,4 @@ type UserAccount =
       [<Column("UpdatedUserId")>]
       UpdatedUserId: Guid
       [<Column("Deleted")>]
-      Deleted: DeleteFlag }
+      Deleted: int }

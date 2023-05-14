@@ -1,4 +1,4 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Domains
 
 
 type ResCode =

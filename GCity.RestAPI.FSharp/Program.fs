@@ -1,22 +1,16 @@
 namespace GCity.RestAPI.FSharp
 
 open Microsoft.EntityFrameworkCore
+open GCity.RestAPI.FSharp.Database
+open GCity.RestAPI.FSharp.Repositories
+open GCity.RestAPI.FSharp.Services
 
 #nowarn "20"
 
-open System
-open System.Collections.Generic
-open System.IO
-open System.Linq
-open System.Threading.Tasks
-open Microsoft.AspNetCore
 open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Hosting
-open Microsoft.AspNetCore.HttpsPolicy
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
-open Microsoft.Extensions.Logging
 
 module Program =
     let exitCode = 0
@@ -29,13 +23,15 @@ module Program =
         // AppSettings
         let configurationBuilder =
             ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile("appsettings.Development.json", false, true)
                 .AddEnvironmentVariables()
                 .Build()
 
         // DbContext
-        let connectionString =
-            configurationBuilder.GetConnectionString("ConnectionStrings:MSSQLSERVER")
+        let connectionString = configurationBuilder.GetConnectionString("MSSQLSERVER")
+
+        //let version = Version "8.0.32"
+        //let serverVersion = ServerVersion.Create (version, ServerType.MySql)
 
         builder.Services.AddDbContext<ApiDbContext>(fun (options: DbContextOptionsBuilder) ->
             options.UseSqlServer(connectionString).EnableSensitiveDataLogging() |> ignore)

@@ -7,18 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+
         <Compile Include="Models/Enums/*.fs"/>
         <Compile Include="Models/*.fs"/>
         <Compile Include="Domains/Response/ResCode.fs"/>
         <Compile Include="Domains/Response/ApiResult.fs"/>
         <Compile Include="Domains/*.fs"/>
-        <Compile Include="Database/*.fs"/>
+        <Compile Include="Database/*"/>
         <Compile Include="Repositories/Interfaces/I*Repository.fs"/>
         <Compile Include="Repositories/*Repository.fs"/>
         <Compile Include="Services/Interfaces/I*Service.fs"/>
         <Compile Include="Services/*Service.fs"/>
-        <Compile Include="Controllers/*.fs"/>
+        <Compile Include="Controllers/*Controller.fs"/>
         <Compile Include="Program.fs"/>
+
     </ItemGroup>
 
     <ItemGroup>
@@ -35,5 +37,6 @@
         <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.5"/>
         <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"/>
     </ItemGroup>
 </Project>

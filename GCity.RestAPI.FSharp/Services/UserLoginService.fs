@@ -1,1 +1,1 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Services

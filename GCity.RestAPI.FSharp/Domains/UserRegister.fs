@@ -1,4 +1,4 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Domains
 
 type UserRegister(username: string, password: string, confirm: string) =
     let mutable username: string = username

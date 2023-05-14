@@ -1,6 +1,7 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Database
 
 open Microsoft.EntityFrameworkCore
+open GCity.RestAPI.FSharp.Models
 
 type ApiDbContext(options: DbContextOptions<ApiDbContext>) =
     inherit DbContext(options)
@@ -18,5 +19,3 @@ type ApiDbContext(options: DbContextOptions<ApiDbContext>) =
     member this._UserProfiles
         with get () = this.UserProfiles
         and set value = this.UserProfiles <- value
-
-    override _.OnModelCreating(modelBuilder: ModelBuilder) = base.OnModelCreating(modelBuilder)

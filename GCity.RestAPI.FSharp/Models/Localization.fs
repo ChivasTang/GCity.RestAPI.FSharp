@@ -1,4 +1,4 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Models
 
 // 举例说明：Code:ja Name:Japanese Native:日本語 MsCode:ja-jp GgCode:ja_jp
 type Localization(code: string, name: string, native: string, msCode: string, ggCode: string) =

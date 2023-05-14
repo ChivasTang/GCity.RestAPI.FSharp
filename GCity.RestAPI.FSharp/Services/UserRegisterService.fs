@@ -1,6 +1,9 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Services
 
 open System
+open GCity.RestAPI.FSharp.Repositories
+open GCity.RestAPI.FSharp.Domains
+open GCity.RestAPI.FSharp.Models
 
 type UserRegisterService(userAccountRepository: IUserAccountRepository, userProfileRepository: IUserProfileRepository) =
     let mutable userAccountRepository = userAccountRepository
@@ -28,7 +31,7 @@ type UserRegisterService(userAccountRepository: IUserAccountRepository, userProf
                   CreatedUserId = id
                   UpdatedTime = timestamp
                   UpdatedUserId = id
-                  Deleted = DeleteFlag.EXISTING }
+                  Deleted = 0 }
 
             userAccountRepository.Insert(userAccount) |> ignore
             userRegister.Password <- null

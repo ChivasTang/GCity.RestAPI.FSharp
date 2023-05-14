@@ -1,21 +1,26 @@
-﻿namespace GCity.RestAPI.FSharp
+﻿namespace GCity.RestAPI.FSharp.Repositories
 
-open Microsoft.EntityFrameworkCore.ChangeTracking
+open GCity.RestAPI.FSharp.Database
+open GCity.RestAPI.FSharp.Models
 
 type UserAccountRepository(_context: ApiDbContext) =
-    let userAccounts = _context.UserAccounts
+    let mutable context = _context
 
     interface IUserAccountRepository with
-        override this.ChangeUserName(userAccount: UserAccount) : EntityEntry<UserAccount> =
-            userAccounts.Update(userAccount)
+        override this.ChangeUserName(userAccount: UserAccount) : unit =
+            context.UserAccounts.Update(userAccount) |> ignore
 
-        override this.Delete(userAccount: UserAccount) : EntityEntry<UserAccount> = userAccounts.Remove(userAccount)
+        override this.Delete(userAccount: UserAccount) : unit =
+            context.UserAccounts.Remove(userAccount) |> ignore
 
-        override this.Insert(userAccount: UserAccount) : EntityEntry<UserAccount> = userAccounts.Add(userAccount)
+        override this.Insert(userAccount: UserAccount) : unit =
+            context.UserAccounts.Add(userAccount) |> ignore
+            context.SaveChanges(true) |> ignore
+
 
         override this.GetByUsername(username: string) : UserAccount =
             query {
-                for userAccount in userAccounts do
+                for userAccount in context.UserAccounts do
                     where (userAccount.Username = username)
                     select userAccount
                     lastOrDefault
@@ -23,7 +28,7 @@ type UserAccountRepository(_context: ApiDbContext) =
 
         override this.GetById(userId: System.Guid) : UserAccount =
             query {
-                for userAccount in userAccounts do
+                for userAccount in context.UserAccounts do
                     where (userAccount.Id = userId)
                     select userAccount
                     lastOrDefault
@@ -31,7 +36,7 @@ type UserAccountRepository(_context: ApiDbContext) =
 
         override this.CountByUsername(username: string) : int =
             query {
-                for userAccount in userAccounts do
+                for userAccount in context.UserAccounts do
                     where (userAccount.Username = username)
                     count
             }
