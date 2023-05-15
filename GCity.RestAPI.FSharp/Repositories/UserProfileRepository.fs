@@ -7,7 +7,7 @@ open GCity.RestAPI.FSharp.Models
 type UserProfileRepository(_context: ApiDbContext) =
 
     interface IUserProfileRepository with
-        override this.GetById(userId: Guid) : UserProfile =
+        override this.SelectById(userId: Guid) : UserProfile =
             query {
                 for userProfile in _context.UserProfiles do
                     where (userProfile.Id = userId)

@@ -3,4 +3,4 @@
 open GCity.RestAPI.FSharp.Domains
 
 type IUserLoginService =
-    abstract member Login: userLogin: UserLogin -> UserLogin
+    abstract member Login: userLogin: UserLogin -> ResCode

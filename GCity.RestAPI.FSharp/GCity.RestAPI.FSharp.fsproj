@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-
+        <Compile Include="Utils/*Util.fs"/>
         <Compile Include="Models/Enums/*.fs"/>
         <Compile Include="Models/*.fs"/>
         <Compile Include="Domains/Response/ResCode.fs"/>
@@ -20,7 +20,6 @@
         <Compile Include="Services/*Service.fs"/>
         <Compile Include="Controllers/*Controller.fs"/>
         <Compile Include="Program.fs"/>
-
     </ItemGroup>
 
     <ItemGroup>

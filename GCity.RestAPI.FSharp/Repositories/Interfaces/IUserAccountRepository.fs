@@ -5,8 +5,8 @@ open GCity.RestAPI.FSharp.Models
 open Microsoft.EntityFrameworkCore.ChangeTracking
 
 type IUserAccountRepository =
-    abstract member GetByUsername: username: string -> UserAccount
-    abstract member GetById: userId: Guid -> UserAccount
+    abstract member SelectByUsername: username: string -> UserAccount
+    abstract member SelectById: userId: Guid -> UserAccount
     abstract member CountByUsername: username: string -> int
     abstract member Insert: UserAccount: UserAccount -> EntityEntry<UserAccount>
     abstract member ChangeUserName: userAccount: UserAccount -> EntityEntry<UserAccount>

@@ -21,7 +21,7 @@ type UserAccountRepository(_context: ApiDbContext) =
 
 
 
-        override this.GetByUsername(username: string) : UserAccount =
+        override this.SelectByUsername(username: string) : UserAccount =
             query {
                 for userAccount in _context.UserAccounts do
                     where (userAccount.Username = username)
@@ -29,7 +29,7 @@ type UserAccountRepository(_context: ApiDbContext) =
                     exactlyOneOrDefault
             }
 
-        override this.GetById(userId: Guid) : UserAccount =
+        override this.SelectById(userId: Guid) : UserAccount =
             query {
                 for userAccount in _context.UserAccounts do
                     where (userAccount.Id = userId)

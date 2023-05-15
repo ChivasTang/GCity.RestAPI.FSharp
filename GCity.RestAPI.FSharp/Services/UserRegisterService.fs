@@ -22,7 +22,7 @@ type UserRegisterService
         count > 0
 
     interface IUserRegisterService with
-        member this.Register(userRegister) =
+        override this.Register(userRegister) =
             let username = userRegister.Username.Trim()
             let password = userRegister.Password.Trim()
             let confirm = userRegister.Confirm.Trim()
