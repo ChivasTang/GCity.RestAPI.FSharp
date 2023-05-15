@@ -21,8 +21,6 @@ type UserRegisterService
         _userAccountRepository.CountByUsername username > 0
 
     interface IUserRegisterService with
-
-
         member this.Register(userRegister) =
             let username = userRegister.Username.Trim()
             let password = userRegister.Password.Trim()

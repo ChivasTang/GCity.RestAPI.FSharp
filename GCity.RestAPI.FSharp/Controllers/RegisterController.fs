@@ -16,11 +16,11 @@ type RegisterController(logger: ILogger<RegisterController>, userRegisterService
         let resCode: ResCode = userRegisterService.Register(_userRegister)
 
         if resCode <> ResCode.SUCCESS_RESULT then
-            ApiResult.FAIL(resCode) |> ignore
+            ApiResult.FAIL(resCode)
+        else
+            let userRegistered: UserRegister =
+                { Username = _userRegister.Username
+                  Password = null
+                  Confirm = null }
 
-        let userRegistered: UserRegister =
-            { Username = _userRegister.Username
-              Password = null
-              Confirm = null }
-
-        ApiResult.SUCCESS(userRegistered)
+            ApiResult.SUCCESS(userRegistered)
