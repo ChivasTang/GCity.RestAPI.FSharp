@@ -1,4 +1,4 @@
-﻿namespace GCity.RestAPI.FSharp.StringUtil
+﻿namespace GCity.RestAPI.FSharp.Utils
 
-type StringUtils =
+type StringUtil =
     static member IsEmpty(str: string) : bool = str.Equals "" || str.Equals null

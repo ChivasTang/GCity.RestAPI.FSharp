@@ -14,13 +14,13 @@ type LoginController(logger: ILogger<LoginController>, _userLoginService: IUserL
     member _.Login([<FromBody>] _userLogin: UserLogin) =
         logger.LogDebug "LoginController --- Login ---"
         let resCode = _userLoginService.Login _userLogin
+
         if resCode <> ResCode.SUCCESS_RESULT then
             ApiResult.FAIL(resCode)
         else
             let login: UserLogin =
-                {
-                    Username = _userLogin.Username
-                    Password = null
-                    IsRemember = true 
-                } 
+                { Username = _userLogin.Username
+                  Password = null
+                  IsRemember = true }
+
             ApiResult.SUCCESS(login)
