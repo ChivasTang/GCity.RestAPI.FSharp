@@ -9,5 +9,5 @@ open Microsoft.FSharp.Core
 type UserProfile =
     { [<Key; Column("Id")>]
       Id: Guid
-      [<Column("Locale"); Required>]
-      Locale: string }
+      [<Column("LocaleCode"); Required>]
+      LocaleCode: string }

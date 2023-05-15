@@ -6,7 +6,7 @@ open System
 
 [<CLIMutable; Table("UserAccount")>]
 type UserAccount =
-    { [<Key; Column("Id"); ForeignKey("UserProfileId")>]
+    { [<Key; Column("Id")>]
       Id: Guid
       [<Required; MaxLength(64); Column("Username")>]
       Username: string

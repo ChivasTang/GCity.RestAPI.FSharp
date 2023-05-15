@@ -5,22 +5,20 @@ open GCity.RestAPI.FSharp.Database
 open GCity.RestAPI.FSharp.Models
 
 type UserProfileRepository(_context: ApiDbContext) =
-    let context = _context
 
     interface IUserProfileRepository with
         override this.GetById(userId: Guid) : UserProfile =
             query {
-                for userProfile in context.UserProfiles do
+                for userProfile in _context.UserProfiles do
                     where (userProfile.Id = userId)
                     select userProfile
                     lastOrDefault
             }
 
         override this.Delete userProfile =
-            context.UserProfiles.Remove userProfile |> ignore
+            _context.UserProfiles.Remove userProfile
 
-        override this.Insert userProfile =
-            context.UserProfiles.Add userProfile |> ignore
+        override this.Insert userProfile = _context.UserProfiles.Add userProfile
 
         override this.Update(userProfile) =
-            context.UserProfiles.Update userProfile |> ignore
+            _context.UserProfiles.Update userProfile
