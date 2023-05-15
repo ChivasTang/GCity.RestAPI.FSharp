@@ -7,7 +7,7 @@ open Microsoft.FSharp.Core
 // 举例说明：Code:ja Name:Japanese Native:日本語 MsCode:ja-jp GgCode:ja_jp
 [<CLIMutable; Table("Locale")>]
 type Locale =
-    { [<Required; MaxLength(64); Column("Code")>]
+    { [<Key; MaxLength(64); Column("Code")>]
       Code: string
       [<Required; MaxLength(64); Column("Name")>]
       Name: string

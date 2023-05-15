@@ -17,8 +17,9 @@ type UserRegisterService
         _userProfileRepository.Insert userProfile |> ignore
         _context.SaveChanges()
 
-    member this.CheckExisted(username) =
-        _userAccountRepository.CountByUsername username > 0
+    member this.CheckExisted(username) : bool =
+        let count = _userAccountRepository.CountByUsername username
+        count > 0
 
     interface IUserRegisterService with
         member this.Register(userRegister) =

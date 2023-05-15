@@ -26,7 +26,7 @@ type UserAccountRepository(_context: ApiDbContext) =
                 for userAccount in _context.UserAccounts do
                     where (userAccount.Username = username)
                     select userAccount
-                    exactlyOne
+                    exactlyOneOrDefault
             }
 
         override this.GetById(userId: Guid) : UserAccount =
@@ -34,7 +34,7 @@ type UserAccountRepository(_context: ApiDbContext) =
                 for userAccount in _context.UserAccounts do
                     where (userAccount.Id = userId)
                     select userAccount
-                    exactlyOne
+                    exactlyOneOrDefault
             }
 
         override this.CountByUsername(username: string) : int =

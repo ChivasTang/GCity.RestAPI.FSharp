@@ -12,7 +12,7 @@ type UserProfileRepository(_context: ApiDbContext) =
                 for userProfile in _context.UserProfiles do
                     where (userProfile.Id = userId)
                     select userProfile
-                    lastOrDefault
+                    exactlyOneOrDefault
             }
 
         override this.Delete userProfile =
