@@ -7,7 +7,6 @@ open GCity.RestAPI.FSharp.Services
 open System
 open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.IdentityModel.Tokens
-open System.Text
 open GCity.RestAPI.FSharp.Utils
 
 #nowarn "20"

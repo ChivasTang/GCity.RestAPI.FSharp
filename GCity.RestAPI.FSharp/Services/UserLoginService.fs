@@ -4,7 +4,7 @@ open GCity.RestAPI.FSharp.Database
 open GCity.RestAPI.FSharp.Domains
 open GCity.RestAPI.FSharp.Models
 open GCity.RestAPI.FSharp.Repositories
-open GCity.RestAPI.FSharp.StringUtil
+open GCity.RestAPI.FSharp.Utils
 
 type UserLoginService
     (
@@ -20,9 +20,9 @@ type UserLoginService
             let username = userLogin.Username.Trim()
             let password = userLogin.Password.Trim()
 
-            if userLogin.Equals null || StringUtils.IsEmpty username then
+            if userLogin.Equals null || StringUtil.IsEmpty username then
                 ResCode.LOGIN_USERNAME_NOT_EXIST
-            elif StringUtils.IsEmpty password then
+            elif StringUtil.IsEmpty password then
                 ResCode.LOGIN_PASSWORD_NOT_INPUT
             else
                 let userAccount = this.LoadUserByUsername username
